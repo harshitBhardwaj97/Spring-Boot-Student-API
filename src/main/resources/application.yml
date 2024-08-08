@@ -1,0 +1,36 @@
+server:
+    port: 8080
+
+spring:
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        password: U7mPL1FL
+        url: jdbc:mysql://localhost:3306/students?createDatabaseIfNotExist=true
+        username: root
+    jpa:
+        hibernate:
+            ddl-auto: update
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.MySQL8Dialect
+        show-sql: true
+
+logging:
+    level:
+        com:
+            harshitbhardwaj:
+                student_rest_api: DEBUG
+        org:
+            springframework:
+                web: DEBUG
+management:
+    endpoint:
+        health:
+            show-details: always
+    endpoints:
+        web:
+            exposure:
+                include: health,info,metrics
+    metrics:
+        enable:
+            all: true
